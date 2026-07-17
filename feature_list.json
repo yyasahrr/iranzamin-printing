@@ -1,0 +1,68 @@
+[
+  {
+    "id": "F01",
+    "behavior": "Visitor can switch between dark and light themes and the choice persists.",
+    "verification": "make check; toggle theme, reload, confirm theme persists",
+    "state": "passing",
+    "evidence": "localStorage key chap-roshan-theme; src/App.tsx theme effect"
+  },
+  {
+    "id": "F02",
+    "behavior": "User completes the 4-step order wizard and an order is created with a tracking code.",
+    "verification": "make check; fill wizard, submit, see success + code",
+    "state": "passing",
+    "evidence": "window event chap-roshan:order-created; localStorage chap-roshan-orders"
+  },
+  {
+    "id": "F03",
+    "behavior": "User logs in or registers via OTP and reaches the profile panel.",
+    "verification": "make check; enter phone, enter 6-digit code, land on /profile",
+    "state": "passing",
+    "evidence": "src/pages/LoginPage.tsx; AuthContext login()"
+  },
+  {
+    "id": "F04",
+    "behavior": "Logged-in user sees their orders, edits profile info, and adjusts settings.",
+    "verification": "make check; on /profile switch tabs, save info, logout",
+    "state": "passing",
+    "evidence": "src/pages/ProfilePage.tsx; AuthContext login() used for save (no full reload)"
+  },
+  {
+    "id": "F05",
+    "behavior": "Visitor clicks a portfolio item and opens a dedicated detail page with gallery and specs.",
+    "verification": "make check; click a project card, navigate gallery, return",
+    "state": "passing",
+    "evidence": "route /portfolio/:slug; src/pages/PortfolioDetailPage.tsx"
+  },
+  {
+    "id": "F06",
+    "behavior": "Harness files (CLAUDE.md, PROGRESS.md, feature_list.json, Makefile) keep the repo agent-ready and verified.",
+    "verification": "make check exits 0; audit critical items pass",
+    "state": "passing",
+    "evidence": "CLAUDE.md + PROGRESS.md + this file + Makefile"
+  },
+  {
+    "id": "F08",
+    "behavior": "An infinite auto-scrolling partners logo marquee pauses on hover and highlights the hovered logo in the accent color.",
+    "verification": "make check; hover the marquee to confirm pause + color change; resize to mobile",
+    "state": "passing",
+    "evidence": "src/App.tsx partners marquee; .marquee-track animation + :hover rules in src/index.css"
+  },
+  {
+    "id": "F09",
+    "behavior": "Enterprise section: stat bar with credibility metrics, 3×2 service cards with icons/descriptions, horizontal 4-step contract timeline, sticky callback form, and full RTL/dark-light responsive layout.",
+    "verification": "make check; open #enterprise, verify stat bar + service cards + step timeline + form submission + mobile layout",
+    "state": "passing",
+    "evidence": "src/App.tsx #enterprise section with orgStats, orgServices (3-col grid), orgSteps (timeline), orgForm; src/index.css .org-* classes"
+  },
+  {
+    "id": "F07",
+    "behavior": "Automated unit tests run via make check to guard against regressions.",
+    "verification": "npm test exits 0",
+    "state": "planned",
+    "layers": [
+      { "label": "Layer 1 - static", "cmd": "npm run build", "repair": "Fix TypeScript/build errors." },
+      { "label": "Layer 2 - unit", "cmd": "npm test", "repair": "Install Vitest and add tests in src/**/*.test.ts." }
+    ]
+  }
+]
