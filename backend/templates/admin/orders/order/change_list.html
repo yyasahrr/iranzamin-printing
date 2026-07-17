@@ -1,0 +1,8 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools %}
+  {% if admin_notice %}
+    {{ admin_notice|safe }}
+  {% endif %}
+  {{ block.super }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/**)",
+      "Edit(src/**)",
+      "Edit(CLAUDE.md)",
+      "Edit(PROGRESS.md)",
+      "Edit(feature_list.json)",
+      "Edit(DECISIONS.md)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(make check)"
+    ],
+    "deny": [
+      "Edit(package.json)",
+      "Edit(vite.config.ts)",
+      "Edit(package-lock.json)",
+      "Bash(rm -rf /**)"
+    ]
+  }
+}
